@@ -1,5 +1,6 @@
 package com.anime.api.application.presentation.controller;
 
+import com.anime.api.application.mapper.AnimeMapper;
 import com.anime.api.application.presentation.representation.AnimeRequestRepresentation;
 import com.anime.api.application.presentation.representation.AnimeResponseRepresentation;
 import com.anime.api.domain.domain.Anime;

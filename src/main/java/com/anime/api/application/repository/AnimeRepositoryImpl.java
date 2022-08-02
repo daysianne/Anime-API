@@ -1,5 +1,6 @@
 package com.anime.api.application.repository;
 
+import com.anime.api.application.mapper.AnimeMapper;
 import com.anime.api.application.repository.jpa.AnimeJpa;
 import com.anime.api.application.repository.jpa.entity.AnimeEntity;
 import com.anime.api.domain.domain.Anime;
