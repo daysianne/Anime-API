@@ -10,6 +10,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
 import java.util.Optional;
 
 @Slf4j
@@ -40,9 +41,9 @@ public class AnimeService {
         return anime;
     }
 
-    public Page<Anime>  pesquisar(String nome, Pageable pageable) {
+    public List<Anime> pesquisar() {
 
-        return animeRepository.findByNomeContaining(nome, pageable);
+        return animeRepository.findAnime();
     }
 
 
@@ -56,7 +57,6 @@ public class AnimeService {
 
     public Anime atualizar(Long codigo, Anime anime) {
         Anime animeSalvo = this.animeRepository.findById(codigo);
-               // .orElseThrow(() -> new EmptyResultDataAccessException(1));
 
         BeanUtils.copyProperties(anime, animeSalvo, "id");
         return this.animeRepository.salvar(animeSalvo);

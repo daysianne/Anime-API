@@ -34,24 +34,33 @@ public class AnimeMapper {
         return modelMapperSupplier.get().map(entity, Anime.class);
     }
 
-//    public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(List<Anime> animeList) {
-//        List<AnimeResponseRepresentation> animeRepresentationList = new ArrayList<>();
-//        for (Anime anime : animeList) {
-//            animeRepresentationList.add(entityParaDominio(anime));
-//        }
-//
-//        return animeRepresentationList;
-//    }
+    public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(List<Anime> animeList) {
+        List<AnimeResponseRepresentation> animeRepresentationList = new ArrayList<>();
+        animeList.forEach(anime -> {
+            animeRepresentationList.add(paraRepresentacao(anime));
+        });
 
-    public Page<Anime> paraAnimeResponseRepresentationList(Page<AnimeEntity> animeList) {
-       List<Anime> animes = new ArrayList<>();
-        for (AnimeEntity anime : animeList) {
-            animes.add(entityParaDominio(anime));
+        return animeRepresentationList;
+    }
+
+    public  List<Anime> paraListaDominio(List<AnimeEntity> animeEntity) {
+        List<Anime> animeList = new ArrayList<>();
+        for (AnimeEntity anime : animeEntity) {
+            animeList.add(entityParaDominio(anime));
         }
 
-        Page<Anime> page = new PageImpl<>(animes);
-
-        return page;
+        return animeList;
     }
+
+//    public Page<Anime> paraAnimeResponseRepresentationList(Page<AnimeEntity> animeList) {
+//       List<Anime> animes = new ArrayList<>();
+//        for (AnimeEntity anime : animeList) {
+//            animes.add(entityParaDominio(anime));
+//        }
+//
+//        Page<Anime> page = new PageImpl<>(animes);
+//
+//        return page;
+//    }
 
 }

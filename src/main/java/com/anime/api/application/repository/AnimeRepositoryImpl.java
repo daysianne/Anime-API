@@ -8,13 +8,10 @@ import com.anime.api.domain.domain.Anime;
 import com.anime.api.domain.port.AnimeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @Repository
@@ -34,13 +31,11 @@ public class AnimeRepositoryImpl implements AnimeRepository {
         }
     }
 
-    public Page<Anime> findByNomeContaining(String nome, Pageable pageable) {
-        var animeEntity = animeJpa.findAll(pageable);
+    public List<Anime> findAnime() {
+        var animeEntity = animeJpa.findAll();
 
-           var animes = AnimeMapper.paraAnimeResponseRepresentationList(animeEntity);
+        return AnimeMapper.paraListaDominio(animeEntity);
 
-
-        return animes;
     }
 
     @Override

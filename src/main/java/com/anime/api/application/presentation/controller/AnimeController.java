@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 import static java.util.Objects.nonNull;
 
 @RestController
@@ -43,8 +45,8 @@ public class AnimeController {
     }
 
     @GetMapping
-    public Page<Anime> pesquisar(@RequestParam(required = false, defaultValue = "") String nome, Pageable pageable) {
-        return service.pesquisar(nome, pageable);
+    public List<Anime> pesquisar(@RequestParam(required = false, defaultValue = "") String nome, Pageable pageable) {
+        return service.pesquisar();
 
     }
 
