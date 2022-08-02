@@ -1,12 +1,10 @@
 package com.anime.api.application.presentation.controller;
 
-import com.anime.api.application.mapper.AnimeMapper;
 import com.anime.api.application.presentation.representation.AnimeRequestRepresentation;
 import com.anime.api.application.presentation.representation.AnimeResponseRepresentation;
 import com.anime.api.domain.domain.Anime;
 import com.anime.api.domain.service.AnimeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

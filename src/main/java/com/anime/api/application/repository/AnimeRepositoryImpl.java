@@ -1,14 +1,11 @@
 package com.anime.api.application.repository;
 
-import com.anime.api.application.mapper.AnimeMapper;
-import com.anime.api.application.presentation.representation.AnimeResponseRepresentation;
 import com.anime.api.application.repository.jpa.AnimeJpa;
 import com.anime.api.application.repository.jpa.entity.AnimeEntity;
 import com.anime.api.domain.domain.Anime;
 import com.anime.api.domain.port.AnimeRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
