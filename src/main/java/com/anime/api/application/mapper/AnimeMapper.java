@@ -6,6 +6,7 @@ import com.anime.api.application.repository.jpa.entity.AnimeEntity;
 import com.anime.api.domain.domain.Anime;
 import lombok.experimental.UtilityClass;
 import org.apache.logging.log4j.util.Supplier;
+import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -34,7 +35,7 @@ public class AnimeMapper {
         return modelMapperSupplier.get().map(entity, Anime.class);
     }
 
-    public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(List<Anime> animeList) {
+    public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(@NotNull List<Anime> animeList) {
         List<AnimeResponseRepresentation> animeRepresentationList = new ArrayList<>();
         animeList.forEach(anime -> {
             animeRepresentationList.add(paraRepresentacao(anime));
@@ -52,15 +53,5 @@ public class AnimeMapper {
         return animeList;
     }
 
-//    public Page<Anime> paraAnimeResponseRepresentationList(Page<AnimeEntity> animeList) {
-//       List<Anime> animes = new ArrayList<>();
-//        for (AnimeEntity anime : animeList) {
-//            animes.add(entityParaDominio(anime));
-//        }
-//
-//        Page<Anime> page = new PageImpl<>(animes);
-//
-//        return page;
-//    }
 
 }
