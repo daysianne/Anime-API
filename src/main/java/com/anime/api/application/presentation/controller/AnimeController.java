@@ -32,14 +32,16 @@ public class AnimeController {
     }
 
     @GetMapping("/{codigo}")
-    public ResponseEntity<AnimeResponseRepresentation> buscarPeloCodigo(@PathVariable Long codigo) {
-       // Anime anime = this.animeRepository.findById(codigo).orElse(null);
-        Anime anime = service.buscarPeloCodigo(codigo);
-        if (nonNull(anime)) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(AnimeMapper.paraRepresentacao(anime));
+    public ResponseEntity<AnimeResponseRepresentation> buscarPeloCodigo(@PathVariable Long codigo) throws Exception {
+        try {
+            Anime anime = service.buscarPeloCodigo(codigo);
+            if (nonNull(anime)) {
+                return ResponseEntity.status(HttpStatus.OK).body(AnimeMapper.paraRepresentacao(anime));
+            }
+            return  ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            throw new Exception("Erro ao buscar anime.");
         }
-
-        return  ResponseEntity.notFound().build();
 
     }
 

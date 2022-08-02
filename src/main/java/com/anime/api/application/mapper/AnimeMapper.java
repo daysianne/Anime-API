@@ -12,6 +12,8 @@ import org.modelmapper.ModelMapper;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Objects.nonNull;
+
 @UtilityClass
 public class AnimeMapper {
 
@@ -30,7 +32,11 @@ public class AnimeMapper {
     }
 
     public Anime entityParaDominio(AnimeEntity entity) {
-        return modelMapperSupplier.get().map(entity, Anime.class);
+        if (nonNull(entity)){
+            return modelMapperSupplier.get().map(entity, Anime.class);
+
+        }
+        return null;
     }
 
     public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(@NotNull List<Anime> animeList) {
