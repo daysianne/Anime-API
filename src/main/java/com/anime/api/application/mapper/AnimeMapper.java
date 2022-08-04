@@ -8,7 +8,6 @@ import lombok.experimental.UtilityClass;
 import org.apache.logging.log4j.util.Supplier;
 import org.jetbrains.annotations.NotNull;
 import org.modelmapper.ModelMapper;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +38,7 @@ public class AnimeMapper {
         return null;
     }
 
-    public List<AnimeResponseRepresentation> paraAnimeResponseRepresentationList(@NotNull List<Anime> animeList) {
+    public List<AnimeResponseRepresentation> paraAnimeRespostaRepresentacaoLista(@NotNull List<Anime> animeList) {
         List<AnimeResponseRepresentation> animeRepresentationList = new ArrayList<>();
         animeList.forEach(anime -> {
             animeRepresentationList.add(paraRepresentacao(anime));

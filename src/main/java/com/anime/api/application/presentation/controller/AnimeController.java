@@ -54,16 +54,12 @@ public class AnimeController {
     @DeleteMapping("/{codigo}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover (@PathVariable Long codigo) {
-       // Anime anime =  service.buscarPeloCodigo(codigo);
-
-       // this.service.delete(anime);
         this.service.delete(codigo);
     }
 
     @PutMapping("/{codigo}")
     public ResponseEntity<Anime> atualizar(@PathVariable Long codigo, @RequestBody Anime anime) {
         Anime animeSalva = service.atualizar(codigo, anime);
-
         return ResponseEntity.ok(animeSalva);
     }
 

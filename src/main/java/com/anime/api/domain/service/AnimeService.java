@@ -23,12 +23,7 @@ public class AnimeService {
     }
 
     public Anime salvar(Anime anime) {
-        if (!TipoGenero.isExist(anime.getTipoGenero().toString())){
-           // throw new BusinessException  ("Tipo de genero de anime inválido");
-        }
-
         try {
-
             return this.animeRepository.salvar(anime);
         } catch (Exception e) {
             log.error("Erro ao tentar salvar um anime. {}", anime, e);
@@ -37,18 +32,12 @@ public class AnimeService {
     }
 
     public Anime buscarPeloCodigo(Long codigo) {
-        Anime anime = this.animeRepository.findById(codigo);
+        Anime anime = this.animeRepository.buscarPorId(codigo);
         return anime;
     }
 
     public List<Anime> pesquisar() {
-
-        return animeRepository.findAnime();
-    }
-
-
-    public void delete(Anime anime) {
-         animeRepository.delete(anime.getId());
+        return animeRepository.listarAnime();
     }
 
     public void delete(long cod) {
@@ -56,7 +45,7 @@ public class AnimeService {
     }
 
     public Anime atualizar(Long codigo, Anime anime) {
-        Anime animeSalvo = this.animeRepository.findById(codigo);
+        Anime animeSalvo = this.animeRepository.buscarPorId(codigo);
 
         BeanUtils.copyProperties(anime, animeSalvo, "id");
         return this.animeRepository.salvar(animeSalvo);

@@ -29,15 +29,14 @@ public class AnimeRepositoryImpl implements AnimeRepository {
         }
     }
 
-    public List<Anime> findAnime() {
+    public List<Anime> listarAnime() {
         var animeEntity = animeJpa.findAll();
-
         return AnimeMapper.paraListaDominio(animeEntity);
 
     }
 
     @Override
-    public Anime findById(Long codigo) {
+    public Anime buscarPorId(Long codigo) {
         try {
             AnimeEntity animeEntity = animeJpa.findById(codigo).orElse(null);
             return AnimeMapper.entityParaDominio(animeEntity);

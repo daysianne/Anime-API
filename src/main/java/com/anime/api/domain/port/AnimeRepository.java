@@ -9,9 +9,9 @@ public interface AnimeRepository {
 
     Anime salvar(Anime anime);
 
-    public List<Anime> findAnime();
+    public List<Anime> listarAnime();
 
-   Anime findById(Long codigo);
+   Anime buscarPorId(Long codigo);
 
     void delete(Long codigo);
 }
